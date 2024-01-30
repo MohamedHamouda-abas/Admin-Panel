@@ -1,0 +1,36 @@
+﻿@page
+@model LastRevisonRazor_Temp.Pages.Categories.CreateModel
+@{
+}
+<div class="col-12 text-center">  
+        <h2 class="text-white py-2 " style="background-color:orange">Create Product</h2>
+</div>
+
+<form method="post" class="row">
+    <div class="form-floating py-2 col-12">
+        <input asp-for="Category.Name" class= "form-control border-0 shadow" maxlength="256" />
+        <label asp-for="Category.Name" class="ms-2"></label>
+        <span asp-validation-for="Category.Name" class="text-danger"></span>
+    </div>
+    <div class="form-floating py-2 col-12">
+        <input asp-for="Category.DisPlayOrder" class="form-control border-0 shadow" maxlength="256" />
+        <label asp-for="Category.DisPlayOrder" class="ms-2"></label>
+        <span asp-validation-for="Category.DisPlayOrder" class="text-danger"></span>
+    </div>
+
+    <div class="row" pt-2>
+        <div class="col-6 col-md-2">
+                <button type="submit" class="btn btn-outline-primary" style="width:150px">Create</button>      
+        </div>
+        <div class="col-6 col-md-2">
+            <a asp-page="/Categories/Index" class="btn btn-outline-secondary" style="width:150px">Back To List</a>
+        </div>
+    </div>
+
+</form>
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+

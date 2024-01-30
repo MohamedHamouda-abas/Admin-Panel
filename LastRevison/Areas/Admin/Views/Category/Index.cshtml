@@ -1,0 +1,42 @@
+﻿@model List<Category>
+<div class="card-body pt-4">
+    <div class="row pb-3">
+        <div class="col-6"></div>
+        <div class="col-6  text-end ">
+            <a asp-controller="Category" asp-action="Upsert" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Create A new Category
+            </a>
+        </div>
+    </div>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Type</th>
+            <th scope="col">DisplayOrder</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cat in Model)
+        {
+            <tr class="table-info">
+                <td scope="row">@cat.Id</td>
+                <td scope="row">@cat.Name</td>
+                <td scope="row">@cat.DisPlayOrder</td>
+                <td scope="row">
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Category" asp-action="Upsert" asp-route-id="@cat.Id" class="btn btn-primary mx-2">
+                            <i class="bi bi-pencil-square"></i> Edit
+                        </a>
+                        <a asp-controller="Category" asp-action="Delete" asp-route-id="@cat.Id" class="btn btn-warning mx-2">
+                            <i class="bi bi-trash3"></i> Delete
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
