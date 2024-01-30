@@ -19,13 +19,15 @@ namespace LastRevison.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            List<Product> products = _unitOfWork.Product.GetAll().ToList();
-            IEnumerable<SelectListItem> categories = _unitOfWork.Category.GetAll().ToList().Select(c => new SelectListItem
-            {
-                Text = c.Name,
-                Value = c.Id.ToString(),
+            List<Product> products = _unitOfWork.Product.GetAll(includeproperties:"Category").ToList();
+            #region Sent In select
+            //IEnumerable<SelectListItem> categories = _unitOfWork.Category.GetAll().ToList().Select(c => new SelectListItem
+            //{
+            //    Text = c.Name,
+            //    Value = c.Id.ToString(),
 
-            });
+            //}); 
+            #endregion
             return View(products);
         }
         //To pass the Data To View
